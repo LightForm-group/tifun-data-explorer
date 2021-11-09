@@ -12,10 +12,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
-    <script src="/static/scripts/data_explorer.js"></script>
-    <link rel="stylesheet" type="text/css" href="/static/styles/style.css">
+    <script src="/tifun-data-explorer/static/scripts/data_explorer.js"></script>
+    <link rel="stylesheet" type="text/css" href="/tifun-data-explorer/static/styles/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link rel="icon" type="image/png" href="/static/icon.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/tifun-data-explorer/static/icon.png" sizes="32x32">
 
 </head>
 <body>
@@ -24,25 +24,25 @@
 
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-            <img class="bi me-2" height=40 width=40 src="/static/logo_small.png" alt="Lightform logo">
+            <img class="bi me-2" height=40 width=40 src="/tifun-data-explorer/static/logo_small.png" alt="Lightform logo">
             <span class="fs-4">TiFun Materials Database</span>
         </a>
         <ul class="nav nav-pills">
 
             
-                <li class="nav-item"><a href="/"
+                <li class="nav-item"><a href="/tifun-data-explorer/"
                                         class="nav-link">Home</a>
                 </li>
             
-                <li class="nav-item"><a href="/samples/"
+                <li class="nav-item"><a href="/tifun-data-explorer/samples/"
                                         class="nav-link active">Samples</a>
                 </li>
             
-                <li class="nav-item"><a href="/experiments/"
+                <li class="nav-item"><a href="/tifun-data-explorer/experiments/"
                                         class="nav-link">Experiments</a>
                 </li>
             
-                <li class="nav-item"><a href="/about"
+                <li class="nav-item"><a href="/tifun-data-explorer/about"
                                         class="nav-link">About</a>
                 </li>
             
@@ -85,46 +85,46 @@
                         onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
                     <option disabled selected value> -- select a sample --</option>
                     
-                        <option value="/samples/TIMET-A"
+                        <option value="/tifun-data-explorer/samples/TIMET-A"
                                 >TIMET-A</option>
                     
-                        <option value="/samples/TIMET-B"
+                        <option value="/tifun-data-explorer/samples/TIMET-B"
                                 >TIMET-B</option>
                     
-                        <option value="/samples/TIMET-C"
+                        <option value="/tifun-data-explorer/samples/TIMET-C"
                                 >TIMET-C</option>
                     
-                        <option value="/samples/TIMET-A-C"
+                        <option value="/tifun-data-explorer/samples/TIMET-A-C"
                                 >TIMET-A-C</option>
                     
-                        <option value="/samples/TIMET-B-4"
+                        <option value="/tifun-data-explorer/samples/TIMET-B-4"
                                 >TIMET-B-4</option>
                     
-                        <option value="/samples/TIMET-A-MR-0"
+                        <option value="/tifun-data-explorer/samples/TIMET-A-MR-0"
                                 >TIMET-A-MR-0</option>
                     
-                        <option value="/samples/TIMET-A-MR-45"
+                        <option value="/tifun-data-explorer/samples/TIMET-A-MR-45"
                                 >TIMET-A-MR-45</option>
                     
-                        <option value="/samples/TIMET-A-MR-90"
+                        <option value="/tifun-data-explorer/samples/TIMET-A-MR-90"
                                 >TIMET-A-MR-90</option>
                     
-                        <option value="/samples/TIMET-A-S-0"
+                        <option value="/tifun-data-explorer/samples/TIMET-A-S-0"
                                 >TIMET-A-S-0</option>
                     
-                        <option value="/samples/TIMET-A-S-45"
+                        <option value="/tifun-data-explorer/samples/TIMET-A-S-45"
                                 >TIMET-A-S-45</option>
                     
-                        <option value="/samples/TIMET-A-S-90"
+                        <option value="/tifun-data-explorer/samples/TIMET-A-S-90"
                                 >TIMET-A-S-90</option>
                     
-                        <option value="/samples/TIMET-B-825C-50red"
+                        <option value="/tifun-data-explorer/samples/TIMET-B-825C-50red"
                                 >TIMET-B-825C-50red</option>
                     
-                        <option value="/samples/TIMET-B-825C-75red"
+                        <option value="/tifun-data-explorer/samples/TIMET-B-825C-75red"
                                 >TIMET-B-825C-75red</option>
                     
-                        <option value="/samples/TIMET-B-825C-875red"
+                        <option value="/tifun-data-explorer/samples/TIMET-B-825C-875red"
                                 >TIMET-B-825C-875red</option>
                     
                 </select>
@@ -134,7 +134,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.19.1/cytoscape.min.js"></script>
     <script src="https://unpkg.com/dagre@0.8.5/dist/dagre.js"></script>
-    <script src="/static/scripts/cytoscape-dagre.js"></script>
+    <script src="/tifun-data-explorer/static/scripts/cytoscape-dagre.js"></script>
     <script src="https://unpkg.com/cytoscape-canvas/dist/cytoscape-canvas.js"></script>
     <script>
 
@@ -143,20 +143,20 @@
             container: document.getElementById('graph-container'), // container to render in
 
             elements: [
-                {data: {id: 'TIMET-A', href: '/samples/TIMET-A'}},
-                {data: {id: 'TIMET-B', href: '/samples/TIMET-B'}},
-                {data: {id: 'TIMET-C', href: '/samples/TIMET-C'}},
-                {data: {id: 'TIMET-A-C', href: '/samples/TIMET-A-C'}},
-                {data: {id: 'TIMET-B-4', href: '/samples/TIMET-B-4'}},
-                {data: {id: 'TIMET-A-MR-0', href: '/samples/TIMET-A-MR-0'}},
-                {data: {id: 'TIMET-A-MR-45', href: '/samples/TIMET-A-MR-45'}},
-                {data: {id: 'TIMET-A-MR-90', href: '/samples/TIMET-A-MR-90'}},
-                {data: {id: 'TIMET-A-S-0', href: '/samples/TIMET-A-S-0'}},
-                {data: {id: 'TIMET-A-S-45', href: '/samples/TIMET-A-S-45'}},
-                {data: {id: 'TIMET-A-S-90', href: '/samples/TIMET-A-S-90'}},
-                {data: {id: 'TIMET-B-825C-50red', href: '/samples/TIMET-B-825C-50red'}},
-                {data: {id: 'TIMET-B-825C-75red', href: '/samples/TIMET-B-825C-75red'}},
-                {data: {id: 'TIMET-B-825C-875red', href: '/samples/TIMET-B-825C-875red'}},
+                {data: {id: 'TIMET-A', href: '/tifun-data-explorer/samples/TIMET-A'}},
+                {data: {id: 'TIMET-B', href: '/tifun-data-explorer/samples/TIMET-B'}},
+                {data: {id: 'TIMET-C', href: '/tifun-data-explorer/samples/TIMET-C'}},
+                {data: {id: 'TIMET-A-C', href: '/tifun-data-explorer/samples/TIMET-A-C'}},
+                {data: {id: 'TIMET-B-4', href: '/tifun-data-explorer/samples/TIMET-B-4'}},
+                {data: {id: 'TIMET-A-MR-0', href: '/tifun-data-explorer/samples/TIMET-A-MR-0'}},
+                {data: {id: 'TIMET-A-MR-45', href: '/tifun-data-explorer/samples/TIMET-A-MR-45'}},
+                {data: {id: 'TIMET-A-MR-90', href: '/tifun-data-explorer/samples/TIMET-A-MR-90'}},
+                {data: {id: 'TIMET-A-S-0', href: '/tifun-data-explorer/samples/TIMET-A-S-0'}},
+                {data: {id: 'TIMET-A-S-45', href: '/tifun-data-explorer/samples/TIMET-A-S-45'}},
+                {data: {id: 'TIMET-A-S-90', href: '/tifun-data-explorer/samples/TIMET-A-S-90'}},
+                {data: {id: 'TIMET-B-825C-50red', href: '/tifun-data-explorer/samples/TIMET-B-825C-50red'}},
+                {data: {id: 'TIMET-B-825C-75red', href: '/tifun-data-explorer/samples/TIMET-B-825C-75red'}},
+                {data: {id: 'TIMET-B-825C-875red', href: '/tifun-data-explorer/samples/TIMET-B-825C-875red'}},
                 
                 {'data': {'id': 'TIMET-A-TIMET-A-C', 'source': 'TIMET-A',
                                 'target': 'TIMET-A-C', href: 'https://sandbox.zenodo.org/record/909809'},
