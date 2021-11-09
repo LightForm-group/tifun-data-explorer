@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Python Flask Materials App</title>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="/static/scripts/data_explorer.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/styles/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="icon" type="image/png" href="/static/icon.png" sizes="32x32">
+
+</head>
+<body>
+
+<div class="container">
+
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <img class="bi me-2" height=40 width=40 src="/static/logo_small.png" alt="Lightform logo">
+            <span class="fs-4">TiFun Materials Database</span>
+        </a>
+        <ul class="nav nav-pills">
+
+            
+                <li class="nav-item"><a href="/"
+                                        class="nav-link">Home</a>
+                </li>
+            
+                <li class="nav-item"><a href="/samples/"
+                                        class="nav-link active">Samples</a>
+                </li>
+            
+                <li class="nav-item"><a href="/experiments/"
+                                        class="nav-link">Experiments</a>
+                </li>
+            
+                <li class="nav-item"><a href="/about"
+                                        class="nav-link">About</a>
+                </li>
+            
+            
+        </ul>
+    </header>
+</div>
+
+<div class="alert_banner">
+    
+        
+    
+</div>
+
+<div class="container">
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h2>Samples</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 my-3">
+                <select name="sample_selection" class="form-select my-3" aria-label="Sample selection"
+                        onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                    
+                        <option value="/samples/TIMET-A">TIMET-A</option>
+                    
+                        <option value="/samples/TIMET-B">TIMET-B</option>
+                    
+                        <option value="/samples/TIMET-C">TIMET-C</option>
+                    
+                        <option value="/samples/TIMET-A-C">TIMET-A-C</option>
+                    
+                        <option value="/samples/TIMET-B-4" selected="selected">TIMET-B-4</option>
+                    
+                        <option value="/samples/TIMET-A-MR-0">TIMET-A-MR-0</option>
+                    
+                        <option value="/samples/TIMET-A-MR-45">TIMET-A-MR-45</option>
+                    
+                        <option value="/samples/TIMET-A-MR-90">TIMET-A-MR-90</option>
+                    
+                        <option value="/samples/TIMET-A-S-0">TIMET-A-S-0</option>
+                    
+                        <option value="/samples/TIMET-A-S-45">TIMET-A-S-45</option>
+                    
+                        <option value="/samples/TIMET-A-S-90">TIMET-A-S-90</option>
+                    
+                        <option value="/samples/TIMET-B-825C-50red">TIMET-B-825C-50red</option>
+                    
+                        <option value="/samples/TIMET-B-825C-75red">TIMET-B-825C-75red</option>
+                    
+                        <option value="/samples/TIMET-B-825C-875red">TIMET-B-825C-875red</option>
+                    
+                </select>
+                <div id="sample_details" class="my-3">
+                    <h3>Sample Details</h3>
+                    Sample Name: TIMET-B-4<br>
+                    Sample creation method: Cutting<br>
+                    Sample creation details: None<br>
+                </div>
+                <div id="sample_images" class="row my-4">
+                    <div class="col">
+                        <h3>Sample Images</h3>
+                    </div>
+                    
+                </div>
+                
+                    Sample has no images.
+                
+                
+                
+
+                <div id="sample_experiments" class="my-4">
+                    <h3>Measurements</h3>
+                    
+                        Sample has no measurements.
+                    
+                </div>
+
+            </div>
+
+            <div class="col-6 my-3 ml-3">
+                <div class="row text-center">
+                    <h3>Sample relationships</h3>
+                </div>
+                <div class="row" id="graph-container"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.19.1/cytoscape.min.js"></script>
+    <script src="https://unpkg.com/dagre@0.8.5/dist/dagre.js"></script>
+    <script src="/static/scripts/cytoscape-dagre.js"></script>
+    <script src="https://unpkg.com/cytoscape-canvas/dist/cytoscape-canvas.js"></script>
+
+    <script>
+
+        var cy = cytoscape({
+            pixelRatio: '1',
+            container: document.getElementById('graph-container'), // container to render in
+
+            elements: [
+                {data: {id: 'TIMET-B-4', href: '/samples/TIMET-B-4'}, 'classes': 'current_sample'},
+                
+                    {data: {id: 'TIMET-B', href: '/samples/TIMET-B'}, 'classes': 'parent'},
+                
+                
+                    {data: {id: 'TIMET-B-825C-50red', href: '/samples/TIMET-B-825C-50red'}, 'classes': 'child'},
+                    
+                
+
+                
+                    {'data': {'id': 'TIMET-B-TIMET-B-4', 'source': 'TIMET-B',
+                                'target': 'TIMET-B-4'},
+                            'classes': 'Cutting' },
+                
+                
+                    {'data': {'id': 'TIMET-B-4-TIMET-B-825C-50red', 'source': 'TIMET-B-4',
+                                'target': 'TIMET-B-825C-50red'},
+                            'classes': 'Forging' },
+                    
+                
+
+            ],
+
+            style: [ // the stylesheet for the graph
+                {
+                    selector: 'node',
+                    style: {
+                        'background-color': '#666',
+                        'label': 'data(id)',
+                        'font-size': 20
+                    }
+                },
+
+                {
+                    selector: '.current_sample',
+                    style: {
+                        'background-color': '#7cc95d'
+                    }
+                },
+
+                {
+                    selector: '.parent',
+                    style: {
+                        'background-color': '#c95d5d'
+                    }
+                },
+
+                {
+                    selector: '.child',
+                    style: {
+                        'background-color': '#5d98c9'
+                    }
+                },
+
+                {
+                    selector: 'edge',
+                    style: {
+                        'width': 3,
+                        'line-color': 'grey',
+                        'target-arrow-color': 'grey',
+                        'target-arrow-shape': 'triangle',
+                        'curve-style': 'bezier'
+                    }
+                },
+
+                
+                {
+                    selector: '.Unknown',
+                    style: {
+                        'line-color': 'grey',
+                        'target-arrow-color': 'grey',
+                    }
+                },
+                
+                {
+                    selector: '.Forging',
+                    style: {
+                        'line-color': 'red',
+                        'target-arrow-color': 'red',
+                    }
+                },
+                
+                {
+                    selector: '.Rolling',
+                    style: {
+                        'line-color': 'green',
+                        'target-arrow-color': 'green',
+                    }
+                },
+                
+                {
+                    selector: '.Cutting',
+                    style: {
+                        'line-color': 'blue',
+                        'target-arrow-color': 'blue',
+                    }
+                },
+                
+            ],
+
+                layout: {
+                    name: 'dagre',
+                    spacingFactor: 1.5
+                }
+
+        });
+
+        cy.on('tap', 'node, edge', function () {
+            if (this.data('href') !== undefined) {
+                window.location.href = this.data('href');
+            }
+        });
+
+        // Draw a legend on a separate canvas over the graph
+        const bottomLayer = cy.cyCanvas({
+            zIndex: -1
+        });
+        const canvas = bottomLayer.getCanvas();
+        const ctx = canvas.getContext("2d");
+
+        cy.on("render cyCanvas.resize", evt => {
+            bottomLayer.resetTransform(ctx);
+            bottomLayer.clear(ctx);
+            bottomLayer.setTransform(ctx);
+
+            const top = cy.extent()['y1']
+            const left = cy.extent()['x1']
+            const right = cy.extent()['x2']
+            const width = cy.extent()['w']
+            const height = cy.extent()['h']
+            const legend_scale = 0.2
+            const legend_left = right - width * legend_scale
+            let legend_spacing = height * 0.05
+            let font_size = height / 35
+            let line_width = height / 100
+            let line_padding = (font_size + line_width) / 2
+            ctx.lineWidth = line_width
+
+            ctx.fillStyle = "black"
+            ctx.font = `${font_size}px Helvetica`;
+            ctx.fillText("   Sample relationship", legend_left, top + legend_spacing);
+
+            const methods = [{"colour": "grey", "name": "Unknown"}, {"colour": "red", "name": "Forging"}, {"colour": "green", "name": "Rolling"}, {"colour": "blue", "name": "Cutting"}]
+
+            for (let i = 0; i < methods.length; i++) {
+                ctx.strokeStyle = methods[i]["colour"];
+                ctx.beginPath();
+                ctx.moveTo(legend_left + width * 0.13, top + legend_spacing * (i + 2) - line_padding);
+                ctx.lineTo(legend_left + width * 0.20, top + legend_spacing * (i + 2) - line_padding);
+                ctx.closePath();
+                ctx.stroke();
+                ctx.fillText(methods[i]["name"], legend_left, top + legend_spacing * (i + 2));
+            }
+
+            const node_types = [{"colour": "#7cc95d", "name": "Current"}, {"colour": "#c95d5d", "name": "Parent"}, {"colour": "#5d98c9", "name": "Child"}]
+
+            ctx.fillText("   Node Type", left + legend_spacing, top + legend_spacing);
+            for (let i = 0; i < 3; i++) {
+                ctx.fillStyle = "black"
+                ctx.fillText(`${node_types[i]["name"]} Sample`, left + legend_spacing, top + legend_spacing * (i + 2));
+                ctx.beginPath();
+                ctx.strokeStyle = node_types[i]["colour"]
+                ctx.fillStyle = node_types[i]["colour"]
+                ctx.arc(left + legend_spacing + 0.15 * width, top + legend_spacing * (i + 2) - line_padding, 10, 0, 2 * Math.PI);
+                ctx.stroke()
+                ctx.fill()
+            }
+
+        })
+
+    </script>
+
+
+
+</div>
+
+</body>
+
+</html>
