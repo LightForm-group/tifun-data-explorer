@@ -42,7 +42,7 @@
                                         class="nav-link">Experiments</a>
                 </li>
             
-                <li class="nav-item"><a href="/tifun-data-explorer/about"
+                <li class="nav-item"><a href="/tifun-data-explorer/about.html"
                                         class="nav-link">About</a>
                 </li>
             
@@ -70,40 +70,40 @@
                 <select name="sample_selection" class="form-select my-3" aria-label="Sample selection"
                         onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-A">TIMET-A</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-A.html" selected="selected">TIMET-A</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-B">TIMET-B</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-B.html">TIMET-B</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-C">TIMET-C</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-C.html">TIMET-C</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-A-C">TIMET-A-C</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-A-C.html">TIMET-A-C</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-B-4">TIMET-B-4</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-B-4.html">TIMET-B-4</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-A-MR-0">TIMET-A-MR-0</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-A-MR-0.html">TIMET-A-MR-0</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-A-MR-45">TIMET-A-MR-45</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-A-MR-45.html">TIMET-A-MR-45</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-A-MR-90">TIMET-A-MR-90</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-A-MR-90.html">TIMET-A-MR-90</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-A-S-0">TIMET-A-S-0</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-A-S-0.html">TIMET-A-S-0</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-A-S-45" selected="selected">TIMET-A-S-45</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-A-S-45.html">TIMET-A-S-45</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-A-S-90">TIMET-A-S-90</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-A-S-90.html">TIMET-A-S-90</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-B-825C-50red">TIMET-B-825C-50red</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-B-825C-50red.html">TIMET-B-825C-50red</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-B-825C-75red">TIMET-B-825C-75red</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-B-825C-75red.html">TIMET-B-825C-75red</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-B-825C-875red">TIMET-B-825C-875red</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-B-825C-875red.html">TIMET-B-825C-875red</option>
                     
                 </select>
                 <div id="sample_details" class="my-3">
                     <h3>Sample Details</h3>
-                    Sample Name: TIMET-A-S-45<br>
-                    Sample creation method: Cutting<br>
-                    Sample creation details: <a href="https://sandbox.zenodo.org/record/909809" rel="noopener">https://sandbox.zenodo.org/record/909809</a><br>
+                    Sample Name: TIMET-A<br>
+                    Sample creation method: Unknown<br>
+                    Sample creation details: None<br>
                 </div>
                 <div id="sample_images" class="row my-4">
                     <div class="col">
@@ -115,21 +115,17 @@
                     Sample has no images.
                 
                 
-                
-                    <div id="child_samples" class="my-3">
-                        <h3>Child samples</h3>
-                            Sample has no child samples.
+                    <div id="parent_samples" class="my-3">
+                        <h3>Parent samples</h3>
+                            Sample is not derived from another sample.
                     </div>
+                
                 
 
                 <div id="sample_experiments" class="my-4">
                     <h3>Measurements</h3>
                     
-                        <ul>
-                        
-                            <li>EBSD - <a href="https://sandbox.zenodo.org/record/913986" rel="noopener">https://sandbox.zenodo.org/record/913986</a></li>
-                        
-                        </ul>
+                        Sample has no measurements.
                     
                 </div>
 
@@ -157,17 +153,43 @@
             container: document.getElementById('graph-container'), // container to render in
 
             elements: [
-                {data: {id: 'TIMET-A-S-45', href: '/tifun-data-explorer/samples/TIMET-A-S-45'}, 'classes': 'current_sample'},
+                {data: {id: 'TIMET-A', href: '/tifun-data-explorer/samples/TIMET-A.html'}, 'classes': 'current_sample'},
                 
-                    {data: {id: 'TIMET-A', href: '/tifun-data-explorer/samples/TIMET-A'}, 'classes': 'parent'},
                 
+                    {data: {id: 'TIMET-A-C', href: '/tifun-data-explorer/samples/TIMET-A-C.html'}, 'classes': 'child'},
+                    {data: {id: 'TIMET-A-MR-0', href: '/tifun-data-explorer/samples/TIMET-A-MR-0.html'}, 'classes': 'child'},
+                    {data: {id: 'TIMET-A-MR-45', href: '/tifun-data-explorer/samples/TIMET-A-MR-45.html'}, 'classes': 'child'},
+                    {data: {id: 'TIMET-A-MR-90', href: '/tifun-data-explorer/samples/TIMET-A-MR-90.html'}, 'classes': 'child'},
+                    {data: {id: 'TIMET-A-S-0', href: '/tifun-data-explorer/samples/TIMET-A-S-0.html'}, 'classes': 'child'},
+                    {data: {id: 'TIMET-A-S-45', href: '/tifun-data-explorer/samples/TIMET-A-S-45.html'}, 'classes': 'child'},
+                    {data: {id: 'TIMET-A-S-90', href: '/tifun-data-explorer/samples/TIMET-A-S-90.html'}, 'classes': 'child'},
+                    
                 
 
                 
+                
+                    {'data': {'id': 'TIMET-A-TIMET-A-C', 'source': 'TIMET-A',
+                                'target': 'TIMET-A-C', href: 'https://sandbox.zenodo.org/record/909809'},
+                            'classes': 'Cutting' },
+                    {'data': {'id': 'TIMET-A-TIMET-A-MR-0', 'source': 'TIMET-A',
+                                'target': 'TIMET-A-MR-0', href: 'https://sandbox.zenodo.org/record/909809'},
+                            'classes': 'Cutting' },
+                    {'data': {'id': 'TIMET-A-TIMET-A-MR-45', 'source': 'TIMET-A',
+                                'target': 'TIMET-A-MR-45', href: 'https://sandbox.zenodo.org/record/909809'},
+                            'classes': 'Cutting' },
+                    {'data': {'id': 'TIMET-A-TIMET-A-MR-90', 'source': 'TIMET-A',
+                                'target': 'TIMET-A-MR-90', href: 'https://sandbox.zenodo.org/record/909809'},
+                            'classes': 'Cutting' },
+                    {'data': {'id': 'TIMET-A-TIMET-A-S-0', 'source': 'TIMET-A',
+                                'target': 'TIMET-A-S-0', href: 'https://sandbox.zenodo.org/record/909809'},
+                            'classes': 'Cutting' },
                     {'data': {'id': 'TIMET-A-TIMET-A-S-45', 'source': 'TIMET-A',
                                 'target': 'TIMET-A-S-45', href: 'https://sandbox.zenodo.org/record/909809'},
                             'classes': 'Cutting' },
-                
+                    {'data': {'id': 'TIMET-A-TIMET-A-S-90', 'source': 'TIMET-A',
+                                'target': 'TIMET-A-S-90', href: 'https://sandbox.zenodo.org/record/909809'},
+                            'classes': 'Cutting' },
+                    
                 
 
             ],

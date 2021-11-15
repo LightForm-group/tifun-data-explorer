@@ -42,7 +42,7 @@
                                         class="nav-link">Experiments</a>
                 </li>
             
-                <li class="nav-item"><a href="/tifun-data-explorer/about"
+                <li class="nav-item"><a href="/tifun-data-explorer/about.html"
                                         class="nav-link">About</a>
                 </li>
             
@@ -70,39 +70,39 @@
                 <select name="sample_selection" class="form-select my-3" aria-label="Sample selection"
                         onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-A">TIMET-A</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-A.html">TIMET-A</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-B">TIMET-B</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-B.html">TIMET-B</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-C">TIMET-C</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-C.html" selected="selected">TIMET-C</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-A-C">TIMET-A-C</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-A-C.html">TIMET-A-C</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-B-4">TIMET-B-4</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-B-4.html">TIMET-B-4</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-A-MR-0">TIMET-A-MR-0</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-A-MR-0.html">TIMET-A-MR-0</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-A-MR-45">TIMET-A-MR-45</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-A-MR-45.html">TIMET-A-MR-45</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-A-MR-90">TIMET-A-MR-90</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-A-MR-90.html">TIMET-A-MR-90</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-A-S-0">TIMET-A-S-0</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-A-S-0.html">TIMET-A-S-0</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-A-S-45">TIMET-A-S-45</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-A-S-45.html">TIMET-A-S-45</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-A-S-90">TIMET-A-S-90</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-A-S-90.html">TIMET-A-S-90</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-B-825C-50red">TIMET-B-825C-50red</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-B-825C-50red.html">TIMET-B-825C-50red</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-B-825C-75red" selected="selected">TIMET-B-825C-75red</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-B-825C-75red.html">TIMET-B-825C-75red</option>
                     
-                        <option value="/tifun-data-explorer/samples/TIMET-B-825C-875red">TIMET-B-825C-875red</option>
+                        <option value="/tifun-data-explorer/samples/TIMET-B-825C-875red.html">TIMET-B-825C-875red</option>
                     
                 </select>
                 <div id="sample_details" class="my-3">
                     <h3>Sample Details</h3>
-                    Sample Name: TIMET-B-825C-75red<br>
-                    Sample creation method: Forging<br>
+                    Sample Name: TIMET-C<br>
+                    Sample creation method: Unknown<br>
                     Sample creation details: None<br>
                 </div>
                 <div id="sample_images" class="row my-4">
@@ -115,6 +115,16 @@
                     Sample has no images.
                 
                 
+                    <div id="parent_samples" class="my-3">
+                        <h3>Parent samples</h3>
+                            Sample is not derived from another sample.
+                    </div>
+                
+                
+                    <div id="child_samples" class="my-3">
+                        <h3>Child samples</h3>
+                            Sample has no child samples.
+                    </div>
                 
 
                 <div id="sample_experiments" class="my-4">
@@ -148,25 +158,11 @@
             container: document.getElementById('graph-container'), // container to render in
 
             elements: [
-                {data: {id: 'TIMET-B-825C-75red', href: '/tifun-data-explorer/samples/TIMET-B-825C-75red'}, 'classes': 'current_sample'},
+                {data: {id: 'TIMET-C', href: '/tifun-data-explorer/samples/TIMET-C.html'}, 'classes': 'current_sample'},
                 
-                    {data: {id: 'TIMET-B-825C-50red', href: '/tifun-data-explorer/samples/TIMET-B-825C-50red'}, 'classes': 'parent'},
-                
-                
-                    {data: {id: 'TIMET-B-825C-875red', href: '/tifun-data-explorer/samples/TIMET-B-825C-875red'}, 'classes': 'child'},
-                    
                 
 
                 
-                    {'data': {'id': 'TIMET-B-825C-50red-TIMET-B-825C-75red', 'source': 'TIMET-B-825C-50red',
-                                'target': 'TIMET-B-825C-75red'},
-                            'classes': 'Forging' },
-                
-                
-                    {'data': {'id': 'TIMET-B-825C-75red-TIMET-B-825C-875red', 'source': 'TIMET-B-825C-75red',
-                                'target': 'TIMET-B-825C-875red', href: 'None'},
-                            'classes': 'Forging' },
-                    
                 
 
             ],
