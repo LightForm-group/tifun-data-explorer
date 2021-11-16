@@ -85,6 +85,9 @@
                         onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
                     <option disabled selected value> -- select a sample --</option>
                     
+                        <option value="/tifun-data-explorer/samples/Nick%27s%20Forged%20Block.html"
+                                >Nick&#39;s Forged Block</option>
+                    
                         <option value="/tifun-data-explorer/samples/TIMET-A.html"
                                 >TIMET-A</option>
                     
@@ -143,6 +146,7 @@
             container: document.getElementById('graph-container'), // container to render in
 
             elements: [
+                {data: {id: 'Nick&#39;s Forged Block', href: '/tifun-data-explorer/samples/Nick%27s%20Forged%20Block.html'}},
                 {data: {id: 'TIMET-A', href: '/tifun-data-explorer/samples/TIMET-A.html'}},
                 {data: {id: 'TIMET-B', href: '/tifun-data-explorer/samples/TIMET-B.html'}},
                 {data: {id: 'TIMET-C', href: '/tifun-data-explorer/samples/TIMET-C.html'}},
@@ -157,6 +161,7 @@
                 {data: {id: 'TIMET-B-825C-50red', href: '/tifun-data-explorer/samples/TIMET-B-825C-50red.html'}},
                 {data: {id: 'TIMET-B-825C-75red', href: '/tifun-data-explorer/samples/TIMET-B-825C-75red.html'}},
                 {data: {id: 'TIMET-B-825C-875red', href: '/tifun-data-explorer/samples/TIMET-B-825C-875red.html'}},
+                
                 
                 {'data': {'id': 'TIMET-A-TIMET-A-C', 'source': 'TIMET-A',
                                 'target': 'TIMET-A-C', href: 'https://sandbox.zenodo.org/record/909809'},
