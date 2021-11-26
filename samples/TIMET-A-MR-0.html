@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
-    <script src="/tifun-data-explorer/static/scripts/data_explorer.js"></script>
+    <script src="/tifun-data-explorer/static/scripts/data-explorer.js"></script>
     <link rel="stylesheet" type="text/css" href="/tifun-data-explorer/static/styles/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="icon" type="image/png" href="/tifun-data-explorer/static/icon.png" sizes="32x32">
@@ -22,43 +22,33 @@
 
 <div class="container">
 
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
             <img class="bi me-2" height=40 width=40 src="/tifun-data-explorer/static/logo_small.png" alt="Lightform logo">
             <span class="fs-4">TiFun Materials Database</span>
         </a>
         <ul class="nav nav-pills">
 
-            
                 <li class="nav-item"><a href="/tifun-data-explorer/"
                                         class="nav-link">Home</a>
                 </li>
-            
                 <li class="nav-item"><a href="/tifun-data-explorer/samples/"
                                         class="nav-link active">Samples</a>
                 </li>
-            
                 <li class="nav-item"><a href="/tifun-data-explorer/experiments/"
                                         class="nav-link">Experiments</a>
                 </li>
-            
                 <li class="nav-item"><a href="/tifun-data-explorer/about.html"
                                         class="nav-link">About</a>
                 </li>
-            
-            
         </ul>
     </header>
 </div>
 
 <div class="alert_banner">
-    
-        
-    
 </div>
 
 <div class="container">
-    
     <div class="container">
         <div class="row">
             <div class="col-6">
@@ -69,37 +59,21 @@
             <div class="col-6 my-3">
                 <select name="sample_selection" class="form-select my-3" aria-label="Sample selection"
                         onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-                    
                         <option value="/tifun-data-explorer/samples/Nick%27s%20Forged%20Block.html">Nick&#39;s Forged Block</option>
-                    
                         <option value="/tifun-data-explorer/samples/TIMET-A.html">TIMET-A</option>
-                    
                         <option value="/tifun-data-explorer/samples/TIMET-B.html">TIMET-B</option>
-                    
                         <option value="/tifun-data-explorer/samples/TIMET-C.html">TIMET-C</option>
-                    
                         <option value="/tifun-data-explorer/samples/TIMET-A-C.html">TIMET-A-C</option>
-                    
                         <option value="/tifun-data-explorer/samples/TIMET-B-4.html">TIMET-B-4</option>
-                    
                         <option value="/tifun-data-explorer/samples/TIMET-A-MR-0.html" selected="selected">TIMET-A-MR-0</option>
-                    
                         <option value="/tifun-data-explorer/samples/TIMET-A-MR-45.html">TIMET-A-MR-45</option>
-                    
                         <option value="/tifun-data-explorer/samples/TIMET-A-MR-90.html">TIMET-A-MR-90</option>
-                    
                         <option value="/tifun-data-explorer/samples/TIMET-A-S-0.html">TIMET-A-S-0</option>
-                    
                         <option value="/tifun-data-explorer/samples/TIMET-A-S-45.html">TIMET-A-S-45</option>
-                    
                         <option value="/tifun-data-explorer/samples/TIMET-A-S-90.html">TIMET-A-S-90</option>
-                    
                         <option value="/tifun-data-explorer/samples/TIMET-B-825C-50red.html">TIMET-B-825C-50red</option>
-                    
                         <option value="/tifun-data-explorer/samples/TIMET-B-825C-75red.html">TIMET-B-825C-75red</option>
-                    
                         <option value="/tifun-data-explorer/samples/TIMET-B-825C-875red.html">TIMET-B-825C-875red</option>
-                    
                 </select>
                 <div id="sample_details" class="my-3">
                     <h3>Sample Details</h3>
@@ -111,28 +85,18 @@
                     <div class="col">
                         <h3>Sample Images</h3>
                     </div>
-                    
                 </div>
-                
                     Sample has no images.
-                
-                
-                
                     <div id="child_samples" class="my-3">
                         <h3>Child samples</h3>
                             Sample has no child samples.
                     </div>
-                
 
                 <div id="sample_experiments" class="my-4">
                     <h3>Measurements</h3>
-                    
                         <ul>
-                        
                             <li>EBSD - <a href="https://sandbox.zenodo.org/record/913986" rel="noopener">https://sandbox.zenodo.org/record/913986</a></li>
-                        
                         </ul>
-                    
                 </div>
 
             </div>
@@ -150,7 +114,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.19.1/cytoscape.min.js"></script>
     <script src="https://unpkg.com/dagre@0.8.5/dist/dagre.js"></script>
     <script src="/tifun-data-explorer/static/scripts/cytoscape-dagre.js"></script>
-    <script src="https://unpkg.com/cytoscape-canvas/dist/cytoscape-canvas.js"></script>
+    <script src="/tifun-data-explorer/static/scripts/cytoscape_canvas.js"></script>
+    <script src="/tifun-data-explorer/static/scripts/network-graph.js"></script>
 
     <script>
 
@@ -160,18 +125,10 @@
 
             elements: [
                 {data: {id: 'TIMET-A-MR-0', href: '/tifun-data-explorer/samples/TIMET-A-MR-0.html'}, 'classes': 'current_sample'},
-                
                     {data: {id: 'TIMET-A', href: '/tifun-data-explorer/samples/TIMET-A.html'}, 'classes': 'parent'},
-                
-                
 
-                
                     {'data': {'id': 'TIMET-A-TIMET-A-MR-0', 'source': 'TIMET-A',
-                                'target': 'TIMET-A-MR-0', href: 'https://sandbox.zenodo.org/record/909809'},
-                            'classes': 'Cutting' },
-                
-                
-
+                                'target': 'TIMET-A-MR-0'}, 'classes': 'Cutting' },
             ],
 
             style: [ // the stylesheet for the graph
@@ -216,7 +173,6 @@
                     }
                 },
 
-                
                 {
                     selector: '.Unknown',
                     style: {
@@ -224,7 +180,6 @@
                         'target-arrow-color': 'grey',
                     }
                 },
-                
                 {
                     selector: '.Forging',
                     style: {
@@ -232,7 +187,6 @@
                         'target-arrow-color': 'red',
                     }
                 },
-                
                 {
                     selector: '.Rolling',
                     style: {
@@ -240,7 +194,6 @@
                         'target-arrow-color': 'green',
                     }
                 },
-                
                 {
                     selector: '.Cutting',
                     style: {
@@ -248,7 +201,6 @@
                         'target-arrow-color': 'blue',
                     }
                 },
-                
             ],
 
                 layout: {
@@ -258,71 +210,42 @@
 
         });
 
-        cy.on('tap', 'node, edge', function () {
+        cy.on('tap', 'node', function () {
             if (this.data('href') !== undefined) {
                 window.location.href = this.data('href');
             }
         });
 
         // Draw a legend on a separate canvas over the graph
-        const bottomLayer = cy.cyCanvas({
+        let bottomLayer = cy.cyCanvas({
             zIndex: -1
         });
-        const canvas = bottomLayer.getCanvas();
-        const ctx = canvas.getContext("2d");
+        let canvas = bottomLayer.getCanvas();
+        let ctx = canvas.getContext("2d");
 
-        cy.on("render cyCanvas.resize", evt => {
-            bottomLayer.resetTransform(ctx);
-            bottomLayer.clear(ctx);
-            bottomLayer.setTransform(ctx);
+        var legend_scale = 0.2
+        var canvas_top
+        var left
+        var right
+        var width
+        var height
+        var legend_left
+        var legend_spacing
+        var font_size
+        var line_width
+        var line_padding
+        const node_types = [{"colour": "#7cc95d", "name": "Current"}, {"colour": "#c95d5d", "name": "Parent"}, {"colour": "#5d98c9", "name": "Child"}]
+        const methods = [{"colour": "grey", "name": "Unknown"}, {"colour": "red", "name": "Forging"}, {"colour": "green", "name": "Rolling"}, {"colour": "blue", "name": "Cutting"}]
+        function canvas_resize() {
+            clear_canvas(bottomLayer, ctx)
+            update_variables(cy)
+            render_node_legend(ctx)
+            render_edge_legend(ctx)
+        }
 
-            const top = cy.extent()['y1']
-            const left = cy.extent()['x1']
-            const right = cy.extent()['x2']
-            const width = cy.extent()['w']
-            const height = cy.extent()['h']
-            const legend_scale = 0.2
-            const legend_left = right - width * legend_scale
-            let legend_spacing = height * 0.05
-            let font_size = height / 35
-            let line_width = height / 100
-            let line_padding = (font_size + line_width) / 2
-            ctx.lineWidth = line_width
-
-            ctx.fillStyle = "black"
-            ctx.font = `${font_size}px Helvetica`;
-            ctx.fillText("   Sample relationship", legend_left, top + legend_spacing);
-
-            const methods = [{"colour": "grey", "name": "Unknown"}, {"colour": "red", "name": "Forging"}, {"colour": "green", "name": "Rolling"}, {"colour": "blue", "name": "Cutting"}]
-
-            for (let i = 0; i < methods.length; i++) {
-                ctx.strokeStyle = methods[i]["colour"];
-                ctx.beginPath();
-                ctx.moveTo(legend_left + width * 0.13, top + legend_spacing * (i + 2) - line_padding);
-                ctx.lineTo(legend_left + width * 0.20, top + legend_spacing * (i + 2) - line_padding);
-                ctx.closePath();
-                ctx.stroke();
-                ctx.fillText(methods[i]["name"], legend_left, top + legend_spacing * (i + 2));
-            }
-
-            const node_types = [{"colour": "#7cc95d", "name": "Current"}, {"colour": "#c95d5d", "name": "Parent"}, {"colour": "#5d98c9", "name": "Child"}]
-
-            ctx.fillText("   Node Type", left + legend_spacing, top + legend_spacing);
-            for (let i = 0; i < 3; i++) {
-                ctx.fillStyle = "black"
-                ctx.fillText(`${node_types[i]["name"]} Sample`, left + legend_spacing, top + legend_spacing * (i + 2));
-                ctx.beginPath();
-                ctx.strokeStyle = node_types[i]["colour"]
-                ctx.fillStyle = node_types[i]["colour"]
-                ctx.arc(left + legend_spacing + 0.15 * width, top + legend_spacing * (i + 2) - line_padding, 10, 0, 2 * Math.PI);
-                ctx.stroke()
-                ctx.fill()
-            }
-
-        })
+        cy.on("render cyCanvas.resize", canvas_resize)
 
     </script>
-
 
 
 </div>

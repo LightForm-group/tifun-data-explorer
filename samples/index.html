@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
-    <script src="/tifun-data-explorer/static/scripts/data_explorer.js"></script>
+    <script src="/tifun-data-explorer/static/scripts/data-explorer.js"></script>
     <link rel="stylesheet" type="text/css" href="/tifun-data-explorer/static/styles/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="icon" type="image/png" href="/tifun-data-explorer/static/icon.png" sizes="32x32">
@@ -22,43 +22,33 @@
 
 <div class="container">
 
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
             <img class="bi me-2" height=40 width=40 src="/tifun-data-explorer/static/logo_small.png" alt="Lightform logo">
             <span class="fs-4">TiFun Materials Database</span>
         </a>
         <ul class="nav nav-pills">
 
-            
                 <li class="nav-item"><a href="/tifun-data-explorer/"
                                         class="nav-link">Home</a>
                 </li>
-            
                 <li class="nav-item"><a href="/tifun-data-explorer/samples/"
                                         class="nav-link active">Samples</a>
                 </li>
-            
                 <li class="nav-item"><a href="/tifun-data-explorer/experiments/"
                                         class="nav-link">Experiments</a>
                 </li>
-            
                 <li class="nav-item"><a href="/tifun-data-explorer/about.html"
                                         class="nav-link">About</a>
                 </li>
-            
-            
         </ul>
     </header>
 </div>
 
 <div class="alert_banner">
-    
-        
-    
 </div>
 
 <div class="container">
-    
     <div class="container">
         <div class="row">
             <div class="col-6">
@@ -84,52 +74,36 @@
                 <select name="sample_selection" class="form-select my-3" aria-label="Sample selection"
                         onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
                     <option disabled selected value> -- select a sample --</option>
-                    
                         <option value="/tifun-data-explorer/samples/Nick%27s%20Forged%20Block.html"
-                                >Nick&#39;s Forged Block</option>
-                    
+>Nick&#39;s Forged Block</option>
                         <option value="/tifun-data-explorer/samples/TIMET-A.html"
-                                >TIMET-A</option>
-                    
+>TIMET-A</option>
                         <option value="/tifun-data-explorer/samples/TIMET-B.html"
-                                >TIMET-B</option>
-                    
+>TIMET-B</option>
                         <option value="/tifun-data-explorer/samples/TIMET-C.html"
-                                >TIMET-C</option>
-                    
+>TIMET-C</option>
                         <option value="/tifun-data-explorer/samples/TIMET-A-C.html"
-                                >TIMET-A-C</option>
-                    
+>TIMET-A-C</option>
                         <option value="/tifun-data-explorer/samples/TIMET-B-4.html"
-                                >TIMET-B-4</option>
-                    
+>TIMET-B-4</option>
                         <option value="/tifun-data-explorer/samples/TIMET-A-MR-0.html"
-                                >TIMET-A-MR-0</option>
-                    
+>TIMET-A-MR-0</option>
                         <option value="/tifun-data-explorer/samples/TIMET-A-MR-45.html"
-                                >TIMET-A-MR-45</option>
-                    
+>TIMET-A-MR-45</option>
                         <option value="/tifun-data-explorer/samples/TIMET-A-MR-90.html"
-                                >TIMET-A-MR-90</option>
-                    
+>TIMET-A-MR-90</option>
                         <option value="/tifun-data-explorer/samples/TIMET-A-S-0.html"
-                                >TIMET-A-S-0</option>
-                    
+>TIMET-A-S-0</option>
                         <option value="/tifun-data-explorer/samples/TIMET-A-S-45.html"
-                                >TIMET-A-S-45</option>
-                    
+>TIMET-A-S-45</option>
                         <option value="/tifun-data-explorer/samples/TIMET-A-S-90.html"
-                                >TIMET-A-S-90</option>
-                    
+>TIMET-A-S-90</option>
                         <option value="/tifun-data-explorer/samples/TIMET-B-825C-50red.html"
-                                >TIMET-B-825C-50red</option>
-                    
+>TIMET-B-825C-50red</option>
                         <option value="/tifun-data-explorer/samples/TIMET-B-825C-75red.html"
-                                >TIMET-B-825C-75red</option>
-                    
+>TIMET-B-825C-75red</option>
                         <option value="/tifun-data-explorer/samples/TIMET-B-825C-875red.html"
-                                >TIMET-B-825C-875red</option>
-                    
+>TIMET-B-825C-875red</option>
                 </select>
             </div>
         </div>
@@ -146,71 +120,43 @@
             container: document.getElementById('graph-container'), // container to render in
 
             elements: [
-                {data: {id: 'Nick&#39;s Forged Block', href: '/tifun-data-explorer/samples/Nick%27s%20Forged%20Block.html'}},
-                {data: {id: 'TIMET-A', href: '/tifun-data-explorer/samples/TIMET-A.html'}},
-                {data: {id: 'TIMET-B', href: '/tifun-data-explorer/samples/TIMET-B.html'}},
-                {data: {id: 'TIMET-C', href: '/tifun-data-explorer/samples/TIMET-C.html'}},
-                {data: {id: 'TIMET-A-C', href: '/tifun-data-explorer/samples/TIMET-A-C.html'}},
-                {data: {id: 'TIMET-B-4', href: '/tifun-data-explorer/samples/TIMET-B-4.html'}},
-                {data: {id: 'TIMET-A-MR-0', href: '/tifun-data-explorer/samples/TIMET-A-MR-0.html'}},
-                {data: {id: 'TIMET-A-MR-45', href: '/tifun-data-explorer/samples/TIMET-A-MR-45.html'}},
-                {data: {id: 'TIMET-A-MR-90', href: '/tifun-data-explorer/samples/TIMET-A-MR-90.html'}},
-                {data: {id: 'TIMET-A-S-0', href: '/tifun-data-explorer/samples/TIMET-A-S-0.html'}},
-                {data: {id: 'TIMET-A-S-45', href: '/tifun-data-explorer/samples/TIMET-A-S-45.html'}},
-                {data: {id: 'TIMET-A-S-90', href: '/tifun-data-explorer/samples/TIMET-A-S-90.html'}},
-                {data: {id: 'TIMET-B-825C-50red', href: '/tifun-data-explorer/samples/TIMET-B-825C-50red.html'}},
-                {data: {id: 'TIMET-B-825C-75red', href: '/tifun-data-explorer/samples/TIMET-B-825C-75red.html'}},
-                {data: {id: 'TIMET-B-825C-875red', href: '/tifun-data-explorer/samples/TIMET-B-825C-875red.html'}},
-                
-                
-                {'data': {'id': 'TIMET-A-TIMET-A-C', 'source': 'TIMET-A',
-                                'target': 'TIMET-A-C', href: 'https://sandbox.zenodo.org/record/909809'},
-                            'classes': 'Cutting' },
-                    {'data': {'id': 'TIMET-A-TIMET-A-MR-0', 'source': 'TIMET-A',
-                                'target': 'TIMET-A-MR-0', href: 'https://sandbox.zenodo.org/record/909809'},
-                            'classes': 'Cutting' },
-                    {'data': {'id': 'TIMET-A-TIMET-A-MR-45', 'source': 'TIMET-A',
-                                'target': 'TIMET-A-MR-45', href: 'https://sandbox.zenodo.org/record/909809'},
-                            'classes': 'Cutting' },
-                    {'data': {'id': 'TIMET-A-TIMET-A-MR-90', 'source': 'TIMET-A',
-                                'target': 'TIMET-A-MR-90', href: 'https://sandbox.zenodo.org/record/909809'},
-                            'classes': 'Cutting' },
-                    {'data': {'id': 'TIMET-A-TIMET-A-S-0', 'source': 'TIMET-A',
-                                'target': 'TIMET-A-S-0', href: 'https://sandbox.zenodo.org/record/909809'},
-                            'classes': 'Cutting' },
-                    {'data': {'id': 'TIMET-A-TIMET-A-S-45', 'source': 'TIMET-A',
-                                'target': 'TIMET-A-S-45', href: 'https://sandbox.zenodo.org/record/909809'},
-                            'classes': 'Cutting' },
-                    {'data': {'id': 'TIMET-A-TIMET-A-S-90', 'source': 'TIMET-A',
-                                'target': 'TIMET-A-S-90', href: 'https://sandbox.zenodo.org/record/909809'},
-                            'classes': 'Cutting' },
-                    
-                {'data': {'id': 'TIMET-B-TIMET-B-4', 'source': 'TIMET-B',
-                                'target': 'TIMET-B-4'},
-                            'classes': 'Cutting' },
-                    
-                
-                
-                {'data': {'id': 'TIMET-B-4-TIMET-B-825C-50red', 'source': 'TIMET-B-4',
-                                'target': 'TIMET-B-825C-50red'},
-                            'classes': 'Forging' },
-                    
-                
-                
-                
-                
-                
-                
-                {'data': {'id': 'TIMET-B-825C-50red-TIMET-B-825C-75red', 'source': 'TIMET-B-825C-50red',
-                                'target': 'TIMET-B-825C-75red'},
-                            'classes': 'Forging' },
-                    
-                {'data': {'id': 'TIMET-B-825C-75red-TIMET-B-825C-875red', 'source': 'TIMET-B-825C-75red',
-                                'target': 'TIMET-B-825C-875red', href: 'None'},
-                            'classes': 'Forging' },
-                    
-                
-                
+{data: {id: 'Nick&#39;s Forged Block', href: '/tifun-data-explorer/samples/Nick%27s%20Forged%20Block.html'}},
+{data: {id: 'TIMET-A', href: '/tifun-data-explorer/samples/TIMET-A.html'}},
+{data: {id: 'TIMET-B', href: '/tifun-data-explorer/samples/TIMET-B.html'}},
+{data: {id: 'TIMET-C', href: '/tifun-data-explorer/samples/TIMET-C.html'}},
+{data: {id: 'TIMET-A-C', href: '/tifun-data-explorer/samples/TIMET-A-C.html'}},
+{data: {id: 'TIMET-B-4', href: '/tifun-data-explorer/samples/TIMET-B-4.html'}},
+{data: {id: 'TIMET-A-MR-0', href: '/tifun-data-explorer/samples/TIMET-A-MR-0.html'}},
+{data: {id: 'TIMET-A-MR-45', href: '/tifun-data-explorer/samples/TIMET-A-MR-45.html'}},
+{data: {id: 'TIMET-A-MR-90', href: '/tifun-data-explorer/samples/TIMET-A-MR-90.html'}},
+{data: {id: 'TIMET-A-S-0', href: '/tifun-data-explorer/samples/TIMET-A-S-0.html'}},
+{data: {id: 'TIMET-A-S-45', href: '/tifun-data-explorer/samples/TIMET-A-S-45.html'}},
+{data: {id: 'TIMET-A-S-90', href: '/tifun-data-explorer/samples/TIMET-A-S-90.html'}},
+{data: {id: 'TIMET-B-825C-50red', href: '/tifun-data-explorer/samples/TIMET-B-825C-50red.html'}},
+{data: {id: 'TIMET-B-825C-75red', href: '/tifun-data-explorer/samples/TIMET-B-825C-75red.html'}},
+{data: {id: 'TIMET-B-825C-875red', href: '/tifun-data-explorer/samples/TIMET-B-825C-875red.html'}},
+{'data': {'id': 'TIMET-A-TIMET-A-C', 'source': 'TIMET-A',
+                                'target': 'TIMET-A-C'}, 'classes': 'Cutting' },
+{'data': {'id': 'TIMET-A-TIMET-A-MR-0', 'source': 'TIMET-A',
+                                'target': 'TIMET-A-MR-0'}, 'classes': 'Cutting' },
+{'data': {'id': 'TIMET-A-TIMET-A-MR-45', 'source': 'TIMET-A',
+                                'target': 'TIMET-A-MR-45'}, 'classes': 'Cutting' },
+{'data': {'id': 'TIMET-A-TIMET-A-MR-90', 'source': 'TIMET-A',
+                                'target': 'TIMET-A-MR-90'}, 'classes': 'Cutting' },
+{'data': {'id': 'TIMET-A-TIMET-A-S-0', 'source': 'TIMET-A',
+                                'target': 'TIMET-A-S-0'}, 'classes': 'Cutting' },
+{'data': {'id': 'TIMET-A-TIMET-A-S-45', 'source': 'TIMET-A',
+                                'target': 'TIMET-A-S-45'}, 'classes': 'Cutting' },
+{'data': {'id': 'TIMET-A-TIMET-A-S-90', 'source': 'TIMET-A',
+                                'target': 'TIMET-A-S-90'}, 'classes': 'Cutting' },
+{'data': {'id': 'TIMET-B-TIMET-B-4', 'source': 'TIMET-B',
+                                'target': 'TIMET-B-4'}, 'classes': 'Cutting' },
+{'data': {'id': 'TIMET-B-4-TIMET-B-825C-50red', 'source': 'TIMET-B-4',
+                                'target': 'TIMET-B-825C-50red'}, 'classes': 'Forging' },
+{'data': {'id': 'TIMET-B-825C-50red-TIMET-B-825C-75red', 'source': 'TIMET-B-825C-50red',
+                                'target': 'TIMET-B-825C-75red'}, 'classes': 'Forging' },
+{'data': {'id': 'TIMET-B-825C-75red-TIMET-B-825C-875red', 'source': 'TIMET-B-825C-75red',
+                                'target': 'TIMET-B-825C-875red'}, 'classes': 'Forging' },
             ],
 
             style: [ // the stylesheet for the graph
@@ -232,7 +178,6 @@
                         'curve-style': 'bezier'
                     }
                 },
-                
                 {
                     selector: '.Unknown',
                     style: {
@@ -240,7 +185,6 @@
                         'target-arrow-color': 'grey',
                     }
                 },
-                
                 {
                     selector: '.Forging',
                     style: {
@@ -248,7 +192,6 @@
                         'target-arrow-color': 'red',
                     }
                 },
-                
                 {
                     selector: '.Rolling',
                     style: {
@@ -256,7 +199,6 @@
                         'target-arrow-color': 'green',
                     }
                 },
-                
                 {
                     selector: '.Cutting',
                     style: {
@@ -264,17 +206,15 @@
                         'target-arrow-color': 'blue',
                     }
                 },
-                
             ],
 
 				layout: {
 				    name: 'dagre',
                     spacingFactor: 1.5
 				}
-
         });
 
-        cy.on('tap', 'node, edge', function () {
+        cy.on('tap', 'node', function () {
             if (this.data('href') !== undefined) {
                 window.location.href = this.data('href');
             }
@@ -321,7 +261,6 @@
         })
 
     </script>
-
 </div>
 
 </body>
