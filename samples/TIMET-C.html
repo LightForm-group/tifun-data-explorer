@@ -118,6 +118,7 @@
     <script src="/tifun-data-explorer/static/graphs/cytoscape-dagre.js"></script>
     <script src="/tifun-data-explorer/static/graphs/cytoscape_canvas.js"></script>
     <script src="/tifun-data-explorer/static/graphs/network-graph.js"></script>
+    <script src="/tifun-data-explorer/static/graphs/graph_data.js"></script>
     <script src="/tifun-data-explorer/static/graphs/graph_style.js"></script>
 
 
@@ -126,14 +127,8 @@
         var cy = cytoscape({
             pixelRatio: '1',
             container: document.getElementById('graph-container'), // container to render in
-
-            elements: [
-                {data: {id: 'TIMET-C', href: '/tifun-data-explorer/samples/TIMET-C.html'}, 'classes': 'current_sample'},
-
-            ],
-
+            elements: data,
             style: style,
-
             layout: {
                 name: 'dagre',
                 spacingFactor: 1.5
@@ -167,12 +162,26 @@
         var line_padding
         const node_types = [{"colour": "#7cc95d", "name": "Current"}, {"colour": "#c95d5d", "name": "Parent"}, {"colour": "#5d98c9", "name": "Child"}]
         const methods = [{"colour": "grey", "name": "Unknown"}, {"colour": "red", "name": "Forging"}, {"colour": "green", "name": "Rolling"}, {"colour": "blue", "name": "Cutting"}]
+
         function canvas_resize() {
             clear_canvas(bottomLayer, ctx)
             update_variables(cy)
             render_node_legend(ctx)
             render_edge_legend(ctx)
         }
+
+        // Selected node + parents and children
+        let current_sample_node = cy.$('#TIMET-C')
+        let selected_nodes = current_sample_node.closedNeighborhood()
+        // Remove all nodes except selected and its parents and children
+        cy.remove(cy.elements("node").subtract(selected_nodes))
+        current_sample_node.addClass("current_sample")
+        current_sample_node.incomers().addClass("parent")
+        current_sample_node.successors().addClass("child")
+
+        cy.zoom(1.2)
+        cy.center(cy.$('#TIMET-C'))
+
 
         cy.on("render cyCanvas.resize", canvas_resize)
 

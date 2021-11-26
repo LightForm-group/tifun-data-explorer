@@ -156,8 +156,8 @@
         var font_size
         var line_width
         var line_padding
-        const node_types = [""]
         const methods = [{"colour": "grey", "name": "Unknown"}, {"colour": "red", "name": "Forging"}, {"colour": "green", "name": "Rolling"}, {"colour": "blue", "name": "Cutting"}]
+
         cy.on("render cyCanvas.resize", evt => {
             clear_canvas(bottomLayer, ctx)
             update_variables(cy)
