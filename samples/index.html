@@ -111,107 +111,25 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.19.1/cytoscape.min.js"></script>
     <script src="https://unpkg.com/dagre@0.8.5/dist/dagre.js"></script>
-    <script src="/tifun-data-explorer/static/scripts/cytoscape-dagre.js"></script>
-    <script src="https://unpkg.com/cytoscape-canvas/dist/cytoscape-canvas.js"></script>
+    <script src="/tifun-data-explorer/static/graphs/cytoscape-dagre.js"></script>
+    <script src="/tifun-data-explorer/static/graphs/cytoscape_canvas.js"></script>
+    <script src="/tifun-data-explorer/static/graphs/network-graph.js"></script>
+    <script src="/tifun-data-explorer/static/graphs/graph_data.js"></script>
+    <script src="/tifun-data-explorer/static/graphs/graph_style.js"></script>
+
     <script>
 
         var cy = cytoscape({
             pixelRatio: '1',
             container: document.getElementById('graph-container'), // container to render in
 
-            elements: [
-{data: {id: 'Nick&#39;s Forged Block', href: '/tifun-data-explorer/samples/Nick%27s%20Forged%20Block.html'}},
-{data: {id: 'TIMET-A', href: '/tifun-data-explorer/samples/TIMET-A.html'}},
-{data: {id: 'TIMET-B', href: '/tifun-data-explorer/samples/TIMET-B.html'}},
-{data: {id: 'TIMET-C', href: '/tifun-data-explorer/samples/TIMET-C.html'}},
-{data: {id: 'TIMET-A-C', href: '/tifun-data-explorer/samples/TIMET-A-C.html'}},
-{data: {id: 'TIMET-B-4', href: '/tifun-data-explorer/samples/TIMET-B-4.html'}},
-{data: {id: 'TIMET-A-MR-0', href: '/tifun-data-explorer/samples/TIMET-A-MR-0.html'}},
-{data: {id: 'TIMET-A-MR-45', href: '/tifun-data-explorer/samples/TIMET-A-MR-45.html'}},
-{data: {id: 'TIMET-A-MR-90', href: '/tifun-data-explorer/samples/TIMET-A-MR-90.html'}},
-{data: {id: 'TIMET-A-S-0', href: '/tifun-data-explorer/samples/TIMET-A-S-0.html'}},
-{data: {id: 'TIMET-A-S-45', href: '/tifun-data-explorer/samples/TIMET-A-S-45.html'}},
-{data: {id: 'TIMET-A-S-90', href: '/tifun-data-explorer/samples/TIMET-A-S-90.html'}},
-{data: {id: 'TIMET-B-825C-50red', href: '/tifun-data-explorer/samples/TIMET-B-825C-50red.html'}},
-{data: {id: 'TIMET-B-825C-75red', href: '/tifun-data-explorer/samples/TIMET-B-825C-75red.html'}},
-{data: {id: 'TIMET-B-825C-875red', href: '/tifun-data-explorer/samples/TIMET-B-825C-875red.html'}},
-{'data': {'id': 'TIMET-A-TIMET-A-C', 'source': 'TIMET-A',
-                                'target': 'TIMET-A-C'}, 'classes': 'Cutting' },
-{'data': {'id': 'TIMET-A-TIMET-A-MR-0', 'source': 'TIMET-A',
-                                'target': 'TIMET-A-MR-0'}, 'classes': 'Cutting' },
-{'data': {'id': 'TIMET-A-TIMET-A-MR-45', 'source': 'TIMET-A',
-                                'target': 'TIMET-A-MR-45'}, 'classes': 'Cutting' },
-{'data': {'id': 'TIMET-A-TIMET-A-MR-90', 'source': 'TIMET-A',
-                                'target': 'TIMET-A-MR-90'}, 'classes': 'Cutting' },
-{'data': {'id': 'TIMET-A-TIMET-A-S-0', 'source': 'TIMET-A',
-                                'target': 'TIMET-A-S-0'}, 'classes': 'Cutting' },
-{'data': {'id': 'TIMET-A-TIMET-A-S-45', 'source': 'TIMET-A',
-                                'target': 'TIMET-A-S-45'}, 'classes': 'Cutting' },
-{'data': {'id': 'TIMET-A-TIMET-A-S-90', 'source': 'TIMET-A',
-                                'target': 'TIMET-A-S-90'}, 'classes': 'Cutting' },
-{'data': {'id': 'TIMET-B-TIMET-B-4', 'source': 'TIMET-B',
-                                'target': 'TIMET-B-4'}, 'classes': 'Cutting' },
-{'data': {'id': 'TIMET-B-4-TIMET-B-825C-50red', 'source': 'TIMET-B-4',
-                                'target': 'TIMET-B-825C-50red'}, 'classes': 'Forging' },
-{'data': {'id': 'TIMET-B-825C-50red-TIMET-B-825C-75red', 'source': 'TIMET-B-825C-50red',
-                                'target': 'TIMET-B-825C-75red'}, 'classes': 'Forging' },
-{'data': {'id': 'TIMET-B-825C-75red-TIMET-B-825C-875red', 'source': 'TIMET-B-825C-75red',
-                                'target': 'TIMET-B-825C-875red'}, 'classes': 'Forging' },
-            ],
+            elements: data,
+            style: style,
 
-            style: [ // the stylesheet for the graph
-                {
-                    selector: 'node',
-                    style: {
-                        'background-color': '#666',
-                        'label': 'data(id)'
-                    }
-                },
-
-                {
-                    selector: 'edge',
-                    style: {
-                        'width': 3,
-                        'line-color': 'grey',
-                        'target-arrow-color': 'grey',
-                        'target-arrow-shape': 'triangle',
-                        'curve-style': 'bezier'
-                    }
-                },
-                {
-                    selector: '.Unknown',
-                    style: {
-                        'line-color': 'grey',
-                        'target-arrow-color': 'grey',
-                    }
-                },
-                {
-                    selector: '.Forging',
-                    style: {
-                        'line-color': 'red',
-                        'target-arrow-color': 'red',
-                    }
-                },
-                {
-                    selector: '.Rolling',
-                    style: {
-                        'line-color': 'green',
-                        'target-arrow-color': 'green',
-                    }
-                },
-                {
-                    selector: '.Cutting',
-                    style: {
-                        'line-color': 'blue',
-                        'target-arrow-color': 'blue',
-                    }
-                },
-            ],
-
-				layout: {
-				    name: 'dagre',
-                    spacingFactor: 1.5
-				}
+            layout: {
+                name: 'dagre',
+                spacingFactor: 1.5
+            }
         });
 
         cy.on('tap', 'node', function () {
@@ -227,37 +145,23 @@
         const canvas = bottomLayer.getCanvas();
         const ctx = canvas.getContext("2d");
 
+        var legend_scale = 0.1
+        var canvas_top
+        var left
+        var right
+        var width
+        var height
+        var legend_left
+        var legend_spacing
+        var font_size
+        var line_width
+        var line_padding
+        const node_types = [""]
+        const methods = [{"colour": "grey", "name": "Unknown"}, {"colour": "red", "name": "Forging"}, {"colour": "green", "name": "Rolling"}, {"colour": "blue", "name": "Cutting"}]
         cy.on("render cyCanvas.resize", evt => {
-            bottomLayer.resetTransform(ctx);
-            bottomLayer.clear(ctx);
-            bottomLayer.setTransform(ctx);
-
-            const top = cy.extent()['y1']
-            const right = cy.extent()['x2']
-            const width = cy.extent()['w']
-            const height = cy.extent()['h']
-            const legend_scale = 0.1
-            const legend_left = right - width * legend_scale
-            let legend_spacing = height * 0.05
-            let font_size = height / 35
-            let line_width = height / 100
-            let line_padding = (font_size + line_width) / 2
-            ctx.lineWidth = line_width
-
-            ctx.fillText("Sample relationship", legend_left, top + legend_spacing);
-            ctx.font = `${font_size}px Helvetica`;
-
-            const methods = [{"colour": "grey", "name": "Unknown"}, {"colour": "red", "name": "Forging"}, {"colour": "green", "name": "Rolling"}, {"colour": "blue", "name": "Cutting"}]
-
-            for (let i = 0; i < methods.length; i++) {
-                ctx.strokeStyle = methods[i]["colour"];
-                ctx.beginPath();
-                ctx.moveTo(legend_left + width * 0.05, top + legend_spacing * (i + 2) - line_padding);
-                ctx.lineTo(legend_left + width * 0.10, top + legend_spacing * (i + 2) - line_padding);
-                ctx.closePath();
-                ctx.stroke();
-                ctx.fillText(methods[i]["name"], legend_left, top + legend_spacing * (i + 2));
-            }
+            clear_canvas(bottomLayer, ctx)
+            update_variables(cy)
+            render_edge_legend(ctx)
         })
 
     </script>
